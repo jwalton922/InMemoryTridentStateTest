@@ -3,7 +3,7 @@ InMemoryTridentStateTest
 
 I was having issues with an in memory Trident State with more than one executor. I posted a question to the Storm dev email group, which is at the bottom.
 
-I figured out a solution to my problem of an in memory Trident State in multiple executors with queries that needed to access some/all of the States. The "trick" is to do a broadcast in the DRPC topology before the stateQuery(), which sends the query to all the trident states. Then to combine the results, you can use an Aggregator. You can see an exampleat: https://github.com/jwalton922/InMemoryTridentStateTest/blob/master/TestTopology/src/main/java/com/mrcy/testtopology/TestTopologyBuilder.java
+I figured out a solution to my problem of an in memory Trident State in multiple executors with queries that needed to access some/all of the States. The "trick" is to do a broadcast in the DRPC topology before the stateQuery(), which sends the query to all the trident states. Then to combine the results, you can use an Aggregator. You can see an example at: https://github.com/jwalton922/InMemoryTridentStateTest/blob/master/TestTopology/src/main/java/com/mrcy/testtopology/TestTopologyBuilder.java
 
 Here's the email:
 
