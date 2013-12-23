@@ -2,4 +2,5 @@ com/mrcy/testtopology/InMemoryTridentState.class
 com/mrcy/testtopology/InMemoryTridentStateFactory.class
 com/mrcy/testtopology/InMemoryTridentStateQuery.class
 com/mrcy/testtopology/TestStateUpdater.class
+com/mrcy/testtopology/StateResultAggregator.class
 com/mrcy/testtopology/TestTopologyBuilder.class

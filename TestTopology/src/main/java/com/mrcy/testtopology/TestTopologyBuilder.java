@@ -36,7 +36,7 @@ public class TestTopologyBuilder {
          FixedBatchSpout spout = createSpout();
          TridentState state = topology.newStream("events", spout).name("EVENT_SPOUT").parallelismHint(parallelism).shuffle().partitionPersist(new InMemoryTridentStateFactory(), spout.getOutputFields(),new TestStateUpdater()).parallelismHint(parallelism);
          
-         topology.newDRPCStream(DRPC_NAME+parallelism).name("DRPC_QUERY_SPOUT").parallelismHint(parallelism).stateQuery(state, new InMemoryTridentStateQuery(), new Fields("output")).name("DRPC_STATE_QUERY").parallelismHint(parallelism);
+         topology.newDRPCStream(DRPC_NAME+parallelism).name("DRPC_QUERY_SPOUT").parallelismHint(parallelism).broadcast().stateQuery(state, new InMemoryTridentStateQuery(), new Fields("output")).name("DRPC_STATE_QUERY").parallelismHint(parallelism).aggregate(new Fields("output"), new StateResultAggregator(), new Fields("combinedOtuput") ).parallelismHint(parallelism);
          
          return topology.build();
     }
