@@ -32,7 +32,11 @@ DRPC result: [["",["event 1","event 2","event 3","event 1"]]]
 DRPC result: [["",["event 1","event 2","event 3","event 1"]]]
 DRPC result: [["",["event 1","event 2","event 3","event 1"]]]
 DRPC result: [["",["event 1","event 2","event 3","event 1"]]]
+
+
 When I query the topology with parallelism of 2, I get output like:
+
+
 DRPC result: [["",["event 2","event 1"]]]
 DRPC result: [["",["event 2","event 1"]]]
 DRPC result: [["",["event 2","event 1"]]]
